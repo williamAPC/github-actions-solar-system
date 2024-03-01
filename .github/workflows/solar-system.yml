@@ -71,3 +71,13 @@ jobs:
           name: Code-Coverage-Result
           path: coverage
           retention-days: 5
+
+
+      - name: Container registriesPush
+        uses: docker/Build-push-action@v4
+        with:
+               context: .
+               push: true
+               tags: |
+                 ${{ vars.DOCKERHUB_USERNAME }}/solar-system:${{ github.sha }}
+                 ghcr.io/williamapc/solar-system:${{ github.sha }}
