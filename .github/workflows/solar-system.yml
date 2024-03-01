@@ -74,6 +74,8 @@ jobs:
 
     docker:
       runs-on: ubuntu-latest
+      permissions: 
+        packages: write
       needs:
           - code-coverage
           - unit-testing
